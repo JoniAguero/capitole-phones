@@ -15,7 +15,7 @@ const Phone = (props) => {
 
   const { small_image, name, price, id } = props.info;
   return (
-        <Col xs={12} md={6} lg={3}>
+        <Col xs={12} sm={6} md={6} lg={3}>
           <Card className="card">
             <CardActionArea>
               <CardMedia

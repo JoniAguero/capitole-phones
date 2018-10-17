@@ -5,6 +5,8 @@ import { fetchPhoneById } from './../../actions/phones/phonesActions';
 
 import LinearProgress from '@material-ui/core/LinearProgress';
 
+import Caracteristicas from './Caracteristicas/Caracteristicas';
+
 import Grid from '@material-ui/core/Grid';
 import './PhoneSelected.css';
 
@@ -28,10 +30,13 @@ class PhoneSelected extends Component {
                                     <img src={`${this.props.phoneSelected[0].image}`} alt={this.props.phoneSelected[0].name} />
                                 </div>
                             </Grid>
-                            <Grid item xs={12} sm={12} md={9} lg={9}>
-                                <div className="info">
-                                    <h2>{this.props.phoneSelected[0].name}</h2>
-                                    <p className="precio">$ {this.props.phoneSelected[0].price}</p>
+                            <Grid item xs={12} sm={12} md={9} lg={6}>
+                                <h2>{this.props.phoneSelected[0].name}</h2>
+                                <p className="precio">$ {this.props.phoneSelected[0].price}</p>
+                                <Caracteristicas info={this.props.phoneSelected[0].caracteristicas_principales} />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <div className="info"> 
                                     <div className="info-caracteristicas">
                                         <h4 className="info-title">Características</h4>
                                         <div className="info-section">

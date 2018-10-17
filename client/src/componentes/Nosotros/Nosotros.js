@@ -7,7 +7,7 @@ export class Nosotros extends Component {
     return (
       <div className="contenedor-nosotros">
         <div className="imagen">
-          <img src="/img/camisa_1.png" alt="imagen nosotros" />
+          <img src="https://tienda.claro.com.ar/wcsstore/Claro/images/catalog/productos/646x1000/20302261.jpg" alt="imagen nosotros" />
         </div>
         <div className="contenido">
           <h2>

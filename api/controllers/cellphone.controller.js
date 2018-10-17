@@ -11,7 +11,7 @@ let phones = [{
     "caracteristicas_principales": {
       "display": "5.8'' HD OLED ",
       "procesador": "A11 - Chip A11 Bionic con arquitectura de 64 bits",
-      "camara-principal": "12 mpx con flash Quad-LED | Zoom óptico | Zoom digital 10x",
+      "camara": "12 mpx con flash Quad-LED | Zoom óptico | Zoom digital 10x",
     },
     "caracteristicas_secundarias": {
       "camara": "Cámara secundaria: 7 mpx",
@@ -46,7 +46,7 @@ let phones = [{
     "caracteristicas_principales": {
       "display": "6.2'' Quad HD+ Super AMOLED ",
       "procesador": "Quad Core 2.3 GHz + Quad Core 1.7 GHz ",
-      "camara-principal": "12 mpx con flash LED | Zoom digital 8x | Dual Pixel ",
+      "camara": "12 mpx con flash LED | Zoom digital 8x | Dual Pixel ",
     },
     "caracteristicas_secundarias": {
       "camara": "Cámara secundaria: 8 mpx",
@@ -81,7 +81,7 @@ let phones = [{
     "caracteristicas_principales": {
       "display": "5.5'' HD LCD IPS",
       "procesador": "A11 - Chip A11 Bionic con arquitectura de 64 bits",
-      "camara-principal": "12 mpx | Zoom digital 10x | Flash Quad-LED",
+      "camara": "12 mpx | Zoom digital 10x | Flash Quad-LED",
     },
     "caracteristicas_secundarias": {
       "camara": "Cámara secundaria: 7 mpx",
@@ -116,7 +116,7 @@ let phones = [{
     "caracteristicas_principales": {
       "display": "5.5'' Full HD ",
       "procesador": "Quad Core 2.3 GHz + Quad Core 1.6 GHz ",
-      "camara-principal": "23 mpx con Flash LED | Zoom digital 10x ",
+      "camara": "23 mpx con Flash LED | Zoom digital 10x ",
     },
     "caracteristicas_secundarias": {
       "camara": "Cámara secundaria: 8 mpx",

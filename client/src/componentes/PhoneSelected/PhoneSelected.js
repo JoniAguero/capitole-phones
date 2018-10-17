@@ -5,55 +5,107 @@ import { fetchPhoneById } from './../../actions/phones/phonesActions';
 
 import LinearProgress from '@material-ui/core/LinearProgress';
 
+import Grid from '@material-ui/core/Grid';
 import './PhoneSelected.css';
 
-const LoadingSpinner = () => (
-      <LinearProgress variant = "query" />
-);
-
 class PhoneSelected extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          loading: false,
-        }
-    }
 
     componentDidMount() {
         this.props.fetchPhoneById(this.props.id);
     }
 
-    
-    render() {
-        
-        console.log(this.props.phoneSelected[0]);
-        
-        if(this.props.phoneSelected[0]) {
-            return (<LinearProgress variant="query" />)
-        } else {
-            // const {image, name, price, description} = this.props.phoneSelected[0];
-            return(
-                <div className = "info-producto" > 
-                    {/* <div className="imagen">
-                        <img src={`${image}`} alt={name} />
-                    </div>
 
-                    <div className="info">
-                        <h2>{name}</h2>
-                        <p className="precio">$ {price}</p>
-                        <p>{description}</p>
-                    </div>  */}
-                </div>
-            )
-        }
-        
+    render() {
+
+        return (
+            <div className="info-producto" >
+                {
+                    !this.props.ui_loaded || this.props.phoneSelected.length === 0 ? < LinearProgress variant = "query" / > :
+                    <div>
+                        <Grid container spacing={8}>
+                            <Grid item xs={12} sm={6} md={3} lg={3}>
+                                <div className="imagen">
+                                    <img src={`${this.props.phoneSelected[0].image}`} alt={this.props.phoneSelected[0].name} />
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={9} lg={9}>
+                                <div className="info">
+                                    <h2>{this.props.phoneSelected[0].name}</h2>
+                                    <p className="precio">$ {this.props.phoneSelected[0].price}</p>
+                                    <div className="info-caracteristicas">
+                                        <h4 className="info-title">Características</h4>
+                                        <div className="info-section">
+                                            <ul>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.camara}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.sist}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.sim}
+                                                </li>
+                                                <li>
+                                                    Red: {this.props.phoneSelected[0].caracteristicas_secundarias.red}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.ram}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.ram_interna}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.ram_externa}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div className="info-section">
+                                            <ul>
+                                                <li>
+                                                    Batería: {this.props.phoneSelected[0].caracteristicas_secundarias.bateria}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.bateria_sb}
+                                                </li>
+                                                <li>
+                                                    Peso: {this.props.phoneSelected[0].caracteristicas_secundarias.peso}
+                                                </li>
+                                                <li>
+                                                    Red: {this.props.phoneSelected[0].caracteristicas_secundarias.dim}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.bluetooth}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.voz}
+                                                </li>
+                                                <li>
+                                                    {this.props.phoneSelected[0].caracteristicas_secundarias.wifi}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={8}>
+                            <Grid item xs={12}>
+                                <div className="description">
+                                    <h3 className="description-title">Descripción</h3>
+                                    <p>{this.props.phoneSelected[0].description}</p>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </div>
+                }
+            </div>
+        )
     }
-  
 }
 
 const mapStateToProps = state => ({
-    phoneSelected: state.phones.phoneSelected
+    phoneSelected: state.phones.phoneSelected,
+    ui_loaded: state.ui_loaded.loaded
 })
- 
+
 export default connect(mapStateToProps, { fetchPhoneById })(PhoneSelected);

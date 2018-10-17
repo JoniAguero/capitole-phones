@@ -27,7 +27,7 @@ class App extends Component {
             <Header />
             <Banner />
             <div className={classes.root}>
-              <Grid spaspacing={24}>
+              <Grid spaspacing={8}>
                 <Switch>
                   <Route exact path="/" component={ListPhonesContainer} />
                   <Route exact path="/phones" component={ListPhonesContainer} />

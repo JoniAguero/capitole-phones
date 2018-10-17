@@ -1,7 +1,7 @@
 import { FETCH_UI_REQUEST, FETCH_UI_SUCCESS } from './../../actions/user-interactions/types';
 
 const initialState = {
-    loaded: undefined
+    loaded: false
 }
 
 export default function(state = initialState, action) {

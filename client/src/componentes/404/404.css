@@ -1,0 +1,14 @@
+.container-notfound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.notfound {
+    width: 60%;
+    height: 550px;
+    background-image: url('./../../assets/img/404.png');
+    background-attachment: local;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

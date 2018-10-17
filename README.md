@@ -1,6 +1,7 @@
 # capitole-phones
 <br/>
 Steps:
+<br/>
 1) Clone repositories
 <br/>
 2) cd api & npm install

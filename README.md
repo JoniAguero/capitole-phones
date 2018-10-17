@@ -1,11 +1,11 @@
 # capitole-phones
 <br /><br />
 Steps:
+1) Clone repositories
 <br />
-1) Clone repositories.
+2) cd api & npm install
+3) cd client & npm instal
 <br />
-2) npm install -> api, client.
+4) npm start -> api & client.
 <br />
-3) npm start -> api, client.
-<br />
-4) Api url = http://localhost:1234/api/ - Client url = http://localhost:3000/
+API URL = http://localhost:1234/api/ - CLIENT URL = http://localhost:3000/

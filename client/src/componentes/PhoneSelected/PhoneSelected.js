@@ -25,12 +25,12 @@ class PhoneSelected extends Component {
                     !this.props.ui_loaded || this.props.phoneSelected.length === 0 ? < LinearProgress variant = "query" / > :
                     <div>
                         <Grid container spacing={8}>
-                            <Grid item xs={12} sm={6} md={3} lg={3}>
+                            <Grid item xs={12} sm={4} md={3} lg={3}>
                                 <div className="imagen">
                                     <img src={`${this.props.phoneSelected[0].image}`} alt={this.props.phoneSelected[0].name} />
                                 </div>
                             </Grid>
-                            <Grid item xs={12} sm={12} md={9} lg={6}>
+                            <Grid item xs={12} sm={8} md={9} lg={6}>
                                 <h2>{this.props.phoneSelected[0].name}</h2>
                                 <p className="precio">$ {this.props.phoneSelected[0].price}</p>
                                 <Caracteristicas info={this.props.phoneSelected[0].caracteristicas_principales} />

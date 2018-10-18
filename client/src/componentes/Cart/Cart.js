@@ -53,7 +53,7 @@ class Cart extends Component {
                     aria-describedby="alert-dialog-slide-description"
                 >
                     <DialogTitle id="alert-dialog-slide-title">
-                        {"Seleccione los items para finalizar"}
+                        {"Items seleccionados. ¿Desea finalizar la compra?"}
                     </DialogTitle>
                     <DialogContent>
                         <div>

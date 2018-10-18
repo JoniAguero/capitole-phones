@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { fetchPhoneById } from './../../actions/phones/phonesActions';
+import { addPhoneToCart } from './../../actions/cart/cartActions';
+
+import IconButton from '@material-ui/core/IconButton';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import LinearProgress from '@material-ui/core/LinearProgress';
 
@@ -16,13 +20,16 @@ class PhoneSelected extends Component {
         this.props.fetchPhoneById(this.props.id);
     }
 
+    addCart = (e) => {
+        e.preventDefault();
+        this.props.addPhoneToCart(this.props.phoneSelected[0]);
+    }
 
     render() {
-
         return (
             <div className="info-producto" >
                 {
-                    !this.props.ui_loaded || this.props.phoneSelected.length === 0 ? < LinearProgress variant = "query" / > :
+                    !this.props.ui || this.props.phoneSelected.length === 0 ? < LinearProgress variant = "query" / > :
                     <div>
                         <Grid container spacing={8}>
                             <Grid item xs={12} sm={4} md={3} lg={3}>
@@ -32,7 +39,14 @@ class PhoneSelected extends Component {
                             </Grid>
                             <Grid item xs={12} sm={8} md={9} lg={6}>
                                 <h2>{this.props.phoneSelected[0].name}</h2>
-                                <p className="precio">$ {this.props.phoneSelected[0].price}</p>
+                                <div className="add-cart">
+                                    <p className="precio">$ {this.props.phoneSelected[0].price}</p>
+                                    <div className="icon-cart">
+                                        <IconButton color="primary" aria-label="Add to shopping cart">
+                                            <AddShoppingCartIcon onClick={this.addCart}/>
+                                        </IconButton>
+                                    </div>
+                                </div>
                                 <Caracteristicas info={this.props.phoneSelected[0].caracteristicas_principales} />
                             </Grid>
                             <Grid item xs={12}>
@@ -110,7 +124,7 @@ class PhoneSelected extends Component {
 
 const mapStateToProps = state => ({
     phoneSelected: state.phones.phoneSelected,
-    ui_loaded: state.ui_loaded.loaded
+    ui: state.ui.loaded
 })
 
-export default connect(mapStateToProps, { fetchPhoneById })(PhoneSelected);
+export default connect(mapStateToProps, { fetchPhoneById, addPhoneToCart })(PhoneSelected);

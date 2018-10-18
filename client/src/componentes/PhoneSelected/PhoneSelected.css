@@ -20,8 +20,10 @@
 }
 
 .precio{
-  font-size: 1.5em;
+  font-size: 1.6em;
   color: #3f51b5;
+  display: inline-block;
+  position: absolute;
 }
 
 .description {
@@ -30,4 +32,16 @@
 
 .description-title {
   text-align: center;
+}
+
+.add-cart{
+  vertical-align: middle;
+  position: relative;
+  height: 50px;
+}
+.icon-cart{
+  position: absolute;
+  display: inline-block;
+  left: 100px;
+  top: -3.5px;
 }

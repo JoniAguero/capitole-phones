@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import "./Header.css";
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Badge from '@material-ui/core/Badge';
-import ShoppingCart from '@material-ui/icons/ShoppingCart';
+import Cart from '../Cart/Cart';
 
 
 const styles = theme => ({
@@ -32,7 +29,7 @@ const styles = theme => ({
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
-      display: 'block',
+      display: 'block'
     },
   },
   search: {
@@ -76,13 +73,13 @@ const styles = theme => ({
   },
   sectionDesktop: {
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'flex',
     },
   },
   sectionMobile: {
     display: 'flex',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
@@ -114,23 +111,9 @@ class Header extends Component {
 
   render() {
 
-    const { anchorEl, mobileMoreAnchorEl } = this.state;
+    const { mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
-    const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const renderMenu = (
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        open={isMenuOpen}
-        onClose={this.handleMenuClose}>
-        <MenuItem><Link className="link" to={'/phones'}>Equipos</Link></MenuItem>
-        <MenuItem><Link className="link" to={'/contacto'}>Contacto</Link></MenuItem>
-        <MenuItem><Link className="link" to={'/nosotros'}>Nosotros</Link></MenuItem>
-      </Menu>
-    );
 
     const renderMobileMenu = (
       <Menu
@@ -149,52 +132,34 @@ class Header extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              <Link to={'/'}>
-                <img className="header-img" src="./img/logo.png" alt="logo"></img>
-              </Link>
-            </Typography>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
+            <Link to={'/'}>
+              <img className="header-img" src="./img/logo.png" alt="logo"></img>
+            </Link>
+            <div className="navigation">
+              <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+                <NavLink className="link" activeClassName='is-active' to={'/phones'}>
+                  Equipos
+                </NavLink>
+                <NavLink className="link" activeClassName='is-active' to={'/nosotros'}>
+                  Nosotros
+                </NavLink>
+                <NavLink className="link" activeClassName='is-active' to={'/contacto'}>
+                  Contacto
+                </NavLink>
+              </Typography>
             </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={2} color="secondary">
-                  <ShoppingCart />
-                </Badge>
-              </IconButton>
-              <IconButton
-                aria-owns={isMenuOpen ? 'material-appbar' : null}
-                aria-haspopup="true"
-                onClick={this.handleProfileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
+              <Cart />
             </div>
             <div className={classes.sectionMobile}>
-              <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={2} color="secondary">
-                  <ShoppingCart />
-                </Badge>
-              </IconButton>
+              <Cart / >
               <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
                 <MoreIcon />
               </IconButton>
             </div>
           </Toolbar>
         </AppBar>
-        {renderMenu}
         {renderMobileMenu}
       </div>
     )

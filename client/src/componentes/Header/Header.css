@@ -16,23 +16,18 @@ header{
     margin-top: 1px;
     margin-left: 50px;
 }
-.header-cart{
-    width: auto;
-    height: 50px;
-    float: right;
-    font-size: 2em;
-    margin-right: 15px;
-    padding-top: 5px;
-}
-.header-nav{
-    float: left;
+.navigation{
     margin-left: 20px;
-    vertical-align: center;
-    margin-top: 12px;
 }
 .link{
     color: black;
+    margin-left: 30px;
+     font-family: 'Oswald', sans-serif;
 }
-.link:hover{
+.link:hover {
+    color: white;
     text-decoration: none;
+}
+.is-active{
+    color: white;
 }
